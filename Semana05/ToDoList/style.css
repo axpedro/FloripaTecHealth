@@ -23,6 +23,10 @@ li{
     margin-left: 15px;
     margin-right: 15px;
     margin-bottom: 13px;
+    
+}
+li input[type="checkbox"]:checked + span {
+    text-decoration: line-through;
 }
 li button {
     margin-left: 50px;
