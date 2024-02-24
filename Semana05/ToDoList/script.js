@@ -2,7 +2,30 @@ var listaInputs = document.querySelectorAll('ul li span');
 var tarefaInput = document.getElementById('tarefa');
 var botaoInserir = document.getElementById('inserir');
 var lista = document.getElementById('lista');
-var botaoExcluir = document.getElementsByClassName('fa-solid fa-trash');
+//var botaoExcluir = document.getElementsByClassName('fa-solid fa-trash');
+
+
+lista.addEventListener('click', function (event) {
+  var target = event.target;
+  if (target.classList.contains('remove')) {
+
+
+    var confirmaExcluir = confirm("Essa exlusão é permanente, deseja continuar?");
+    // Find the closest <li> element and remove it
+
+    if(confirmaExcluir){
+      var listItem = target.closest('li');
+    if (listItem) {
+      listItem.remove();
+    }
+    }
+    
+  }
+}
+);
+
+
+
 
 function checaLista() {
   var inputComTrim = tarefaInput.value.trim().toLowerCase();
