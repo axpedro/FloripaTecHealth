@@ -1,5 +1,6 @@
 var botaoEnviar = document.getElementById('enviar');
 var listaCliente = [];
+var listaConta = [];
 
 class Cliente {
   nomeCompleto;
@@ -10,6 +11,29 @@ class Cliente {
     this.nomeCompleto = nome;
     this.numeroConta = numeroConta;
     this.saldo = saldo;
+  }
+}
+
+class Conta extends Cliente {
+  ativa;
+  Cliente;
+
+  constructor(nomeCompleto, numeroConta, saldo, ativa) {
+    super.nomeCompleto = nomeCompleto;
+    super.numeroConta = numeroConta;
+    super.saldo = saldo;
+    this.ativa = false;
+  }
+
+  saque(valor) {
+    return super.saldo - valor;
+  }
+  deposito(valor) {
+    return super.saldo + valor;
+  }
+
+  verSaldo() {
+    console.log(super.saldo);
   }
 }
 
