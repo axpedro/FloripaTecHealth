@@ -1,15 +1,15 @@
 var botaoEnviar = document.getElementById('enviar');
 var listaCliente = [];
 var listaConta = [];
-var botaoSacar = document.querySelector('#sacar');
+//var botaoSacar = document.getElementById('sacar');
 //botaoSacar.addEventListener('click',  saque);
-//botaoSaldo.addEventListener('click', verSaldo);
+var botaoSaldo = document.getElementById('verSaldo');
 
 class Cliente {
-  nomeCompleto;
+  nome;
     
-constructor(nomeCompleto) {
-    this.nomeCompleto = nomeCompleto;
+constructor(nome) {
+    this.nome = nome;
     
   }
 }
@@ -31,35 +31,43 @@ this.ativa = ativa;
  
 saque(valor){
     
-    var valor = document.querySelector('saque');
-    parseFloat(valor);
-    saldo-valor;
+    this.valor -=  valor;
   }
 
   deposito(valor){
-    saldo+valor;
+    this.saldo+=valor;
   }
   verSaldo(){
-    var botaoSaldo = document.getElementById('verSaldo');
     
     console.log(this.saldo);
   }
 }
 
+
+
+
+
 botaoEnviar.addEventListener('click', function (e) {
   e.preventDefault();
-  var nome = document.getElementById('nome');
+  var nome = document.getElementById('nomeInput');
   var numeroConta = document.getElementById('numeroConta');
   var saldo = document.getElementById('saldo');
-  parseFloat(saldo);
-  parseFloat(numeroConta);
-  const cliente = new Cliente(nome);
-  const conta = new Conta(cliente, numeroConta,saldo,ativa = true);
+  const cliente = new Cliente(nome.value);
+  const conta = new Conta(cliente, parseFloat(numeroConta.value),parseFloat(saldo.value),ativa = true);
+  
+  nome.value='';
+  numeroConta.value='';
+  saldo.value='';
   listaCliente.push(cliente);
   listaConta.push(conta);
   console.log(listaCliente);
   console.log(listaConta);
 });
 
+botaoSaldo.addEventListener('click', function(e){
+  listaConta[0].verSaldo();
+  
+
+});
 
 //numeroConta, parseFloat(saldo) || 0
