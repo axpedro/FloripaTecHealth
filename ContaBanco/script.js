@@ -14,7 +14,7 @@ constructor(nome) {
   }
 }
 
-class Conta{
+class Conta {
   cliente;
   numeroConta;
   saldo;
@@ -43,9 +43,28 @@ saque(valor){
   }
 }
 
+class Conta extends Cliente {
+  ativa;
+  Cliente;
 
+  constructor(nomeCompleto, numeroConta, saldo, ativa) {
+    super.nomeCompleto = nomeCompleto;
+    super.numeroConta = numeroConta;
+    super.saldo = saldo;
+    this.ativa = false;
+  }
 
+  saque(valor) {
+    return super.saldo - valor;
+  }
+  deposito(valor) {
+    return super.saldo + valor;
+  }
 
+  verSaldo() {
+    console.log(super.saldo);
+  }
+}
 
 botaoEnviar.addEventListener('click', function (e) {
   e.preventDefault();
