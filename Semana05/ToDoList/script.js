@@ -33,7 +33,7 @@ function checaLista() {
   '<span>' +
   tarefaInput.value +
   '</span>' +
-  '<button class="remove"><i class="fa-solid fa-trash"></i></button></li>';
+  '<button onclick="deletar(this)" class="remove"><i class="fa-solid fa-trash"></i></button></li>';
 tarefaInput.value = '';
 contador +=1;
 numerador.innerHTML = contador;
@@ -41,25 +41,21 @@ updateDeleteButtonListener();
 
 
   }
- 
-
-  
-
-  
-
-
-botaoInserir.addEventListener('click', function (event) {
+  botaoInserir.addEventListener('click', function (event) {
   checaLista();
 });
-
+function deletar(target){
+  var listItem = target.closest('li');
+  listItem.remove();
+  numerador.innerHTML = contador -=1;
+}
 
 lista.addEventListener('click', function (event) {
   var target = event.target;
   if (target.classList.contains('remove')) {
 
     var confirmaExcluir = confirm("Essa exlusão é permanente, deseja continuar?");
-    // Find the closest <li> element and remove it
-
+    
     if(confirmaExcluir){
       var listItem = target.closest('li');
     if (listItem) {
@@ -72,19 +68,19 @@ lista.addEventListener('click', function (event) {
   }
 }
 );
-function updateDeleteButtonListener() {
-  var botaoExcluir = document.querySelectorAll('.remove');
-  botaoExcluir.forEach(function (button) {
-    button.addEventListener('click', function (event) {
-      var target = event.target;
-      if (target.classList.contains('remove')) {
-        // Find the closest <li> element and remove it
-        var listItem = target.closest('li');
-        if (listItem) {
-          listItem.remove();
-        }
-      }
-    });
-  });
-}
-updateDeleteButtonListener();
+// function updateDeleteButtonListener() {
+//   var botaoExcluir = document.querySelectorAll('.remove');
+//   botaoExcluir.forEach(function (button) {
+//     button.addEventListener('click', function (event) {
+//       var target = event.target;
+//       if (target.classList.contains('remove')) {
+//         // Find the closest <li> element and remove it
+//         var listItem = target.closest('li');
+//         if (listItem) {
+//           listItem.remove();
+//         }
+//       }
+//     });
+//   });
+// }
+// updateDeleteButtonListener();
