@@ -1,0 +1,23 @@
+
+
+
+<form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+  <div>
+    <label for="codigoUsuario">Codigo Usuario:</label>
+    <input type="text" name='codigoUsuario'
+    [(ngModel)] = "login.codigoUsuario"
+    #codigoUsuario="ngModel">  </div>
+    <div>
+        <label for="senhaUsuario">Senha:</label>
+        <input type="text" name='senhaUsuario'
+    
+        />  </div>
+   
+    <button>Entrar</button>
+    <button>Cadastrar</button>
+
+
+
+
+
+</form>

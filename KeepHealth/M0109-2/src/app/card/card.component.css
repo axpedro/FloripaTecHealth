@@ -1,0 +1,20 @@
+div{
+    text-align: center;
+    border-color: black;
+    
+    background-color: black;
+    color: blueviolet;
+    font-size: larger;
+   
+
+}
+.card {
+border: 1px solid dark;
+border-radius: 6px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+
+}
