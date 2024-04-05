@@ -50,6 +50,9 @@ set salarioBase(salarioBase){
 }
 }
 
+
+
+//Math.abs(valor)   transforma um valor em negativo em positiov, remove o negativo
 class VendedorComissionado extends Vendedor{
     #taxaComissao;
 
